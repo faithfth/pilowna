@@ -2,6 +2,7 @@ const HEARTS = ['💕', '💖', '💗', '💓', '💞', '❤️', '🩷'];
 const RED_HEARTS = ['❤️', '❤️', '♥️', '❤️'];
 const CORNERS = ['tl', 'tr', 'bl', 'br'];
 const BUBBLES_PER_CORNER = 5;
+const TOP_BUBBLES_PER_CORNER = 2;
 const PHOTO_HEARTS = [
   'assets/pilo1.png',
   'assets/pilo2.png',
@@ -37,7 +38,9 @@ export function initBubbles() {
   initPhotoHeartGallery();
 
   CORNERS.forEach((corner) => {
-    const bubbleCount = BUBBLES_PER_CORNER;
+    const bubbleCount = corner === 'tl' || corner === 'tr'
+      ? TOP_BUBBLES_PER_CORNER
+      : BUBBLES_PER_CORNER;
     for (let i = 0; i < bubbleCount; i++) {
       createBubble(container, corner, i);
     }

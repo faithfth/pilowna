@@ -183,7 +183,7 @@ function refreshEvolutionUI() {
   if (state.phase !== 'hatched') return;
   $('pet-age').textContent = formatAge();
   $('pet-size-text').textContent = `${Math.round(getScale() * 100)}%`;
-  $('pet-evolution').textContent = `Evolusi Dori: ${Math.round(getEvolutionProgress() * 100)}% — ${getEvolutionLabel()}`;
+  $('pet-evolution').textContent = `Evolusi: ${Math.round(getEvolutionProgress() * 100)}% — ${getEvolutionLabel()}`;
   updatePetVisuals();
 }
 
@@ -227,7 +227,7 @@ function renderUI(onLoveMessage) {
   else trayEl?.classList.add('hidden');
 
   nameDisplay.textContent = state.name ? `${state.name} 💕` : '';
-  $('pet-evolution').textContent = `Evolusi Dori: ${Math.round(getEvolutionProgress() * 100)}% — ${getEvolutionLabel()}`;
+  $('pet-evolution').textContent = `Evolusi: ${Math.round(getEvolutionProgress() * 100)}% — ${getEvolutionLabel()}`;
   $('pet-age').textContent = formatAge();
   $('pet-hunger-bar').style.width = `${state.dailyHunger}%`;
   $('pet-hunger-text').textContent = `${Math.round(state.dailyHunger)}%`;
