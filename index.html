@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Untuk Vio 💕</title>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <section id="terms-screen" class="entry-screen">
+    <div class="entry-card">
+      <div class="terms-letter-wrap">
+        <span class="terms-letter-pointer" aria-hidden="true">👇</span>
+        <button id="terms-letter" class="terms-letter" type="button" aria-label="Buka pesan surat">💌</button>
+        <span class="terms-letter-label">Klik suratnya</span>
+      </div>
+      <p class="entry-card__eyebrow">Sebelum masuk...</p>
+      <h1 class="entry-card__title">Terms &amp; Conditions 💌</h1>
+      <p class="entry-card__text">Lansung setuju aja sayang, kamu ga punya pilihan lain.</p>
+      <button id="terms-agree" class="btn btn--primary" type="button">Aku setuju, masuk 💕</button>
+    </div>
+  </section>
+
+  <div id="terms-letter-modal" class="entry-modal hidden" role="dialog" aria-modal="true" aria-labelledby="terms-letter-title">
+    <div class="entry-modal__card">
+      <div class="entry-modal__icon">💌</div>
+      <h2 id="terms-letter-title">Pesan rahasia</h2>
+      <p>halaman ini hanya muncul sekali saja dan semoga ingatan kamu cukup bagus untuk menyimpan semua memory ini.</p>
+      <button id="terms-letter-close" class="entry-action" type="button">Aku ingat 💕</button>
+    </div>
+  </div>
+
+  <section id="intro-screen" class="entry-screen hidden">
+    <div class="entry-card entry-card--intro">
+      <div class="entry-card__hearts">💕</div>
+      <p class="entry-card__eyebrow">ini pertanyaan gampang, harusnya kamu tau</p>
+      <h1 class="entry-card__title">Wie geht es dir?</h1>
+      <p class="entry-card__text">Awas aja kamu salah 🫵</p>
+      <div id="intro-answers" class="entry-answers">
+        <button class="entry-answer" type="button" data-correct="true">Mir geht es Gut, danke! 💕</button>
+        <button class="entry-answer" type="button" data-correct="false">Ich heiße Vio 😎</button>
+      </div>
+      <p id="intro-feedback" class="entry-feedback" aria-live="polite"></p>
+      <div id="intro-message" class="intro-message" aria-live="polite"></div>
+      <div id="intro-actions" class="entry-actions hidden"></div>
+      <p id="intro-choice-feedback" class="intro-choice-feedback" aria-live="polite"></p>
+      <div id="intro-input-wrap" class="intro-input-wrap hidden"></div>
+    </div>
+  </section>
+
+  <div id="main-app" class="main-app hidden">
+  <div id="bubble-container" aria-hidden="true"></div>
+
+  <header class="header">
+    <button id="pilowna-title" class="header__title header__title--clickable" type="button" aria-label="Klik 8 kali untuk membuka kejutan">Pilowna <span class="heart-pulse">💕</span></button>
+    <p class="header__subtitle">tukang tantrum 😵‍💫</p>
+    <nav class="nav">
+      <button class="nav__btn" data-section="pet">🐣 Peliharaan</button>
+      <button class="nav__btn" data-section="chat">💬 Temen Ngobrol</button>
+      <button class="nav__btn" data-section="gacha">🎁 Gatcha</button>
+    </nav>
+  </header>
+
+  <main class="main">
+    <!-- Section: Peliharaan -->
+    <section id="section-pet" class="section section--active">
+      <div class="card">
+        <h2 class="card__title">Hello mami pilo, ini aku <span id="pet-name-display"></span></h2>
+        <p id="pet-evolution" class="card__desc"></p>
+
+        <div id="pet-stats" class="pet-stats hidden">
+          <div class="stat stat--hidden">
+            <span class="stat__label">Perut hari ini</span>
+            <div class="stat__bar">
+              <div id="pet-hunger-bar" class="stat__fill"></div>
+            </div>
+            <span id="pet-hunger-text" class="stat__value">0%</span>
+          </div>
+          <div class="stat">
+            <span class="stat__label">Aku berusia</span>
+            <span id="pet-age" class="stat__value stat__value--big">0 hari</span>
+          </div>
+          <div class="stat stat--hidden">
+            <span class="stat__label">Ukuran</span>
+            <span id="pet-size-text" class="stat__value stat__value--big">38%</span>
+          </div>
+        </div>
+
+        <div id="pet-room" class="pet-room time-morning">
+          <div class="pet-room__sky"></div>
+          <div class="pet-room__celestial"></div>
+          <div class="pet-room__ground"></div>
+          <div class="pet-room__decor"></div>
+
+          <!-- Telur -->
+          <div id="pet-egg" class="pet-egg" role="button" tabindex="0" aria-label="Pecahkan telur">
+            <div class="pet-egg__shell">
+              <div class="pet-egg__spot pet-egg__spot--1"></div>
+              <div class="pet-egg__spot pet-egg__spot--2"></div>
+              <div class="pet-egg__spot pet-egg__spot--3"></div>
+            </div>
+            <p class="pet-egg__hint">Ketuk telur 3x untuk menetas! 🥚</p>
+          </div>
+
+          <!-- Peliharaan Pou-like -->
+          <div id="pet-creature" class="pet hidden" aria-label="Peliharaan">
+            <div id="pet-mouth-zone" class="pet__mouth-zone"></div>
+            <div class="pet__shadow"></div>
+            <div class="pet__tail"></div>
+            <div class="pet__body">
+              <div class="pet__ear pet__ear--left"></div>
+              <div class="pet__ear pet__ear--right"></div>
+              <div class="pet__tuft"></div>
+              <div class="pet__face">
+                <div class="pet__eye pet__eye--left">
+                  <div class="pet__pupil"></div>
+                  <div class="pet__tear pet__tear--left"></div>
+                </div>
+                <div class="pet__eye pet__eye--right">
+                  <div class="pet__pupil"></div>
+                  <div class="pet__tear pet__tear--right"></div>
+                </div>
+                <div class="pet__blush pet__blush--left"></div>
+                <div class="pet__blush pet__blush--right"></div>
+                <div class="pet__mouth">
+                  <div class="pet__mouth-inner"></div>
+                  <div class="pet__tongue"></div>
+                </div>
+                <div class="pet__muzzle"><span class="pet__nose"></span></div>
+              </div>
+              <div class="pet__arm pet__arm--left"></div>
+              <div class="pet__arm pet__arm--right"></div>
+              <div class="pet__belly"></div>
+              <div class="pet__foot pet__foot--left"></div>
+              <div class="pet__foot pet__foot--right"></div>
+            </div>
+            <div id="pet-speech" class="pet__speech"></div>
+            <div class="pet__zzz hidden">Zzz</div>
+          </div>
+        </div>
+
+        <div id="food-tray" class="food-tray hidden">
+          <p class="food-tray__label">Ini makanan buat aku, tolong suapin yaa 👇</p>
+          <div class="food-tray__items"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section: Mesin Chat -->
+    <section id="section-chat" class="section">
+      <div class="card card--chat">
+        <h2 class="card__title">Mesin Chat Buat Temenin Kamu 💬</h2>
+        <p class="card__desc">Bisa buat curhat, cerita, atau ngobrol — tapi kadang ga nyambung 😁</p>
+
+        <div class="chat-machine">
+          <div class="chat-machine__header">
+            <div class="chat-machine__avatar">💕</div>
+            <div class="chat-machine__info">
+              <span class="chat-machine__name">Soren</span>
+              <span class="chat-machine__status"><span class="chat-machine__dot"></span> Online — siap dengerin</span>
+            </div>
+          </div>
+
+          <div id="chat-log" class="chat-machine__log" aria-live="polite"></div>
+
+          <div id="chat-quick-replies" class="chat-machine__quick"></div>
+
+          <div class="chat-machine__input-row">
+            <input
+              id="chat-input"
+              class="chat-machine__input"
+              type="text"
+              maxlength="300"
+              placeholder="Ketik pesan..."
+              autocomplete="off"
+            >
+            <button id="chat-send" class="chat-machine__send" type="button" aria-label="Kirim pesan">
+              ➤
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section: Gashapon -->
+    <section id="section-gacha" class="section">
+      <div class="card">
+        <h2 class="card__title">Gashapon Love 💕</h2>
+
+        <div class="gashapon-wrap">
+          <div id="gashapon-machine" class="gashapon-machine">
+            <div class="gashapon-machine__top-cap">
+              <span class="gashapon-machine__top-heart">💕</span>
+            </div>
+            <div class="gashapon-machine__globe">
+              <div id="gashapon-globe-balls" class="gashapon-globe-balls"></div>
+              <div class="gashapon-machine__globe-shine"></div>
+              <div class="gashapon-machine__globe-shine gashapon-machine__globe-shine--2"></div>
+            </div>
+            <div class="gashapon-machine__neck"></div>
+            <div class="gashapon-machine__ring"></div>
+            <div class="gashapon-machine__body">
+              <div class="gashapon-machine__coin-slot">
+                <span class="gashapon-machine__coin-label">100% LOVE</span>
+              </div>
+              <div class="gashapon-machine__label">PILOWNA GASHAPON</div>
+              <div class="gashapon-machine__dispenser">
+                <div class="gashapon-machine__slot"></div>
+                <button id="gashapon-knob" class="gashapon-machine__knob" type="button" aria-label="Putar gashapon">
+                  <span class="gashapon-machine__knob-spoke"></span>
+                  <span class="gashapon-machine__knob-spoke"></span>
+                  <span class="gashapon-machine__knob-spoke"></span>
+                  <span class="gashapon-machine__knob-center"></span>
+                </button>
+              </div>
+            </div>
+            <div class="gashapon-machine__chute">
+              <div class="gashapon-machine__chute-inner"></div>
+              <div class="gashapon-machine__chute-opening"></div>
+            </div>
+            <div class="gashapon-machine__base">
+              <div class="gashapon-machine__foot gashapon-machine__foot--l"></div>
+              <div class="gashapon-machine__foot gashapon-machine__foot--r"></div>
+            </div>
+            <div id="gashapon-scatter" class="gashapon-scatter"></div>
+            <div id="gashapon-burst" class="gashapon-burst"></div>
+          </div>
+
+          <div id="gashapon-ejected" class="gashapon-ejected hidden"></div>
+
+          <p id="gacha-status" class="gashapon__status">Putar tombol gashapon untuk dapat bola love! 💕</p>
+          <p id="gacha-timer" class="gashapon__timer"></p>
+        </div>
+
+        <div id="gacha-result" class="gashapon-result hidden">
+          <div class="gashapon-result__icon">💌</div>
+          <p id="gacha-message" class="gashapon-result__message"></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <section class="photo-heart-gallery" aria-label="Koleksi foto berbentuk love">
+    <div id="photo-heart-gallery__items" class="photo-heart-gallery__items"></div>
+  </section>
+
+  <!-- Modal naming (sekali saja) -->
+  <div id="naming-modal" class="modal-overlay hidden">
+    <div class="modal">
+      <div class="modal__hearts">🐣💕</div>
+      <h2 class="modal__title">Beri Nama Peliharaan</h2>
+      <p class="modal__message">Namanya cuma bisa dibuat sekali ya mami!</p>
+      <input id="pet-name-input" class="modal__input" type="text" maxlength="20" placeholder="Masukkan nama...">
+      <button id="btn-save-name" class="btn btn--primary">Simpan Nama 💕</button>
+    </div>
+  </div>
+
+  <!-- Modal pesan sweet -->
+  <div id="modal-overlay" class="modal-overlay hidden">
+    <div class="modal">
+      <div class="modal__hearts">💕💖💗💓💞</div>
+      <h2 id="modal-title" class="modal__title">I Love You</h2>
+      <p id="modal-message" class="modal__message"></p>
+      <button id="modal-close" class="btn btn--primary">Tutup 💕</button>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <p>Dibuat dengan effort — dan 💕 yang banyak</p>
+  </footer>
+  </div>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
